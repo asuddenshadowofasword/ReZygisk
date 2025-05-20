@@ -634,6 +634,8 @@ void ZygiskContext::run_modules_pre() {
       continue;
     }
 
+    LOGE("have loaded module [%s]", lib_path);
+
     void *entry = dlsym(handle, "zygisk_module_entry");
     if (!entry) {
       LOGE("Failed to find entry point in module [%s]: %s", lib_path, dlerror());
